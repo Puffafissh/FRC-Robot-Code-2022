@@ -41,9 +41,9 @@ public class Suck extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intake.setRaw(0.5);
-    m_conveyer.setRaw(0.5);
-    m_transfer.setRaw(0.25);
+    m_intake.setRaw(1);
+    m_conveyer.setRaw(1);
+    m_transfer.setRaw(1);
   }
 
   // Called once the command ends or is interrupted.
