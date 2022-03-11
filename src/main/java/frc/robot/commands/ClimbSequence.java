@@ -4,16 +4,21 @@
 
 package frc.robot.commands;
 
+import java.util.Set;
+
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.subcommands.ClimbExtend;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.commands.subcommands.ClimbRetract;
 import frc.robot.commands.subcommands.ClimbButton;
 import frc.robot.subsystems.Climber;
 
-public final class ClimbSequence {
+public final class ClimbSequence implements Command {
   /** Creates a new ClimbSequence. */
   public ClimbSequence() {
     // Use addRequirements() here to declare subsystem dependencies.
+  }
+
+public ClimbSequence(Climber m_Climber) {
   }
 
 public Command getStep1(Climber climber)
@@ -24,5 +29,11 @@ public Command getStep1(Climber climber)
 public Command getStep2(Climber climber)
 {
     return new ClimbExtend(climber);
+}
+
+@Override
+public Set<Subsystem> getRequirements() {
+  // TODO Auto-generated method stub
+  return null;
 }
 }

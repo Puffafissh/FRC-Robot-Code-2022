@@ -13,7 +13,7 @@ public class Climber extends SubsystemBase {
   /** Creates a new Climber. */
   public Climber() {
     
-    climbmotor = new Victor(channel);
+    climbmotor = new Victor(6);
     climbmotor.setSafetyEnabled(false);
   }
 

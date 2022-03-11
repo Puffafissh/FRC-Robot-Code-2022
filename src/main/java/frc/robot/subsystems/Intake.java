@@ -13,7 +13,7 @@ public class Intake extends SubsystemBase {
   private Spark intakemotor;
  
  public Intake() {
-intakemotor= new Spark(4);
+intakemotor = new Spark(4);
 intakemotor.setSafetyEnabled(false);
   }
 
