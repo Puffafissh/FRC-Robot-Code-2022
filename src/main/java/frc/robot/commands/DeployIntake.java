@@ -4,19 +4,14 @@
 
 package frc.robot.commands;
 
-import javax.print.event.PrintEvent;
-
-import edu.wpi.first.networktables.LogMessage;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakeDeploy;
 
 public class DeployIntake extends CommandBase 
 {
   private final IntakeDeploy m_IntakeDeploy;
   private XboxController INTAKEDRIVER;
-  private LogMessage myLoggger;
   /** Creates a new DeployIntake. */
 
   public DeployIntake(IntakeDeploy intakeDeploy, XboxController xController) {
@@ -34,7 +29,7 @@ public class DeployIntake extends CommandBase
   @Override
   public void initialize() 
   {
-    this.m_IntakeDeploy.setRaw(0.25);
+    this.m_IntakeDeploy.setRaw(0.75);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -34,15 +34,18 @@ public class HighFire extends CommandBase {
     addRequirements(m_transfer);
   }
 
-  // Called when the command is initially scheduled.
+
+
+
+// Called when the command is initially scheduled.
   @Override
   public void initialize() {
     m_gun.setRaw(1);
 
     Timer.delay(2);
 
-    m_conveyer.setRaw(0.6);
-m_transfer.setRaw(-0.65);
+    m_conveyer.setRaw(1);
+m_transfer.setRaw(1);
 
   }
 

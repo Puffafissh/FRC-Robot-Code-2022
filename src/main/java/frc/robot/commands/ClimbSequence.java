@@ -8,7 +8,6 @@ import java.util.Set;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.robot.commands.subcommands.ClimbRetract;
 import frc.robot.commands.subcommands.ClimbButton;
 import frc.robot.subsystems.Climber;
 
