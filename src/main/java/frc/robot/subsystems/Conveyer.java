@@ -13,7 +13,7 @@ public class Conveyer extends SubsystemBase {
   private Spark conveyermotor;
  
  public Conveyer() {
-conveyermotor= new Spark(5);
+conveyermotor = new Spark(5);
 conveyermotor.setSafetyEnabled(false);
   }
 

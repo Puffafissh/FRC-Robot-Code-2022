@@ -7,15 +7,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drivebase;
 
 
 /** An example command that uses an example subsystem. */
 public class JoystickDrive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Drivebase m_drivebase;
-  private Joystick DRIVER;
+  private final Drivebase m_Drivebase;
+  private Joystick driverController;
   
  
   /**
@@ -25,8 +24,8 @@ public class JoystickDrive extends CommandBase {
    */
   public JoystickDrive(Drivebase drivebase, Joystick joystick) {
 
-    m_drivebase = drivebase;
-    DRIVER = joystick;
+    m_Drivebase = drivebase;
+    driverController = joystick;
   
 
     // Use addRequirements() here to declare subsystem dependencies.
@@ -35,33 +34,29 @@ public class JoystickDrive extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
-    double y = DRIVER.getY()*-0.5;
-    double x = DRIVER.getX()*0.5;
-    double throttle = DRIVER.getRawAxis(3)*-0.5+0.5;
-    boolean top = DRIVER.getTop();
+    double y = driverController.getY()*-0.5;
+    double x = driverController.getX()*0.5;
+    double throttle = driverController.getRawAxis(3)*-0.5+0.5;
+    boolean top = driverController.getTop();
 
 
 if(top==true) {
-		m_drivebase.setRaw(-1*(y*throttle+x*throttle),-1*(y*throttle-x*throttle));
+		m_Drivebase.setRaw(-1*(y*throttle+x*throttle),-1*(y*throttle-x*throttle));
 	}
 	else{
-		m_drivebase.setRaw((y*throttle+x*throttle),(y*throttle-x*throttle));
+		m_Drivebase.setRaw((y*throttle+x*throttle),(y*throttle-x*throttle));
 
   }
-
-
         }
 
-   
-    
-
-  
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {}

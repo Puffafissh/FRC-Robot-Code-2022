@@ -30,6 +30,7 @@ public class Suck extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_intake);
     addRequirements(m_conveyer);
+    addRequirements(m_transfer);
   }
 
   // Called when the command is initially scheduled.
@@ -43,7 +44,7 @@ public class Suck extends CommandBase {
   public void execute() {
     m_intake.setRaw(1);
     m_conveyer.setRaw(1);
-    m_transfer.setRaw(1);
+    m_transfer.setRaw(-1);
   }
 
   // Called once the command ends or is interrupted.

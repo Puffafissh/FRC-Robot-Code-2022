@@ -41,8 +41,8 @@ public class MedFire extends CommandBase {
 
     Timer.delay(2);
 
-    m_conveyer.setRaw(0.6);
-m_transfer.setRaw(-0.65);
+    m_conveyer.setRaw(1);
+m_transfer.setRaw(1);
 
   }
 

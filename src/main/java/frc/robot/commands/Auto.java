@@ -33,7 +33,7 @@ public class Auto extends CommandBase {
   @Override
   public void execute() {
 
- m_drivebase.setRaw(0.2, 0.2);
+ m_drivebase.setRaw(-0.2, -0.2);
 
 Timer.delay( 4);
 

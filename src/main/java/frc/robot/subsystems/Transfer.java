@@ -12,7 +12,7 @@ public class Transfer extends SubsystemBase {
   private Victor transfermotor;
  
  public Transfer() {
-transfermotor= new Victor(3);
+transfermotor = new Victor(3);
 transfermotor.setSafetyEnabled(false);
  }
 

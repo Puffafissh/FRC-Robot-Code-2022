@@ -16,12 +16,7 @@ import frc.robot.commands.MedFire;
 import frc.robot.commands.Suck;
 import frc.robot.commands.Zuck;
 import frc.robot.commands.MegaZuck;
-import frc.robot.commands.Climb;
 import frc.robot.commands.ClimbExtend;
-import frc.robot.commands.ClimbSequence;
-import frc.robot.commands.DeployIntake;
-import frc.robot.commands.subcommands.ClimbButton;
-import frc.robot.commands.subcommands.ClimbRetract;
 import frc.robot.commands.DeployIntake;
 
 import frc.robot.subsystems.Conveyer;
@@ -34,9 +29,7 @@ import frc.robot.subsystems.IntakeDeploy;
 
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -66,25 +59,29 @@ public class RobotContainer {
  private final ClimbExtend m_Climb = new ClimbExtend(m_Climber);
 
  /*Drive*/
- private final XboxController GUNNER = new XboxController(0);
- public Joystick DRIVER = new Joystick(1);
+ private final XboxController xboxController = new XboxController(Constants.XBOXCONTROLLER);
+ private final Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
 
- private final JoystickDrive m_joystickDrive = new JoystickDrive(m_Drivebase, DRIVER);
+public double GetDriverRawAxis(int axis){
+   return driverController.getRawAxis(axis);
+ }
+
+ //private final JoystickDrive DRIVE = new JoystickDrive(m_Drivebase, DRIVE);
 
   /* Low Fire */
-JoystickButton GAButton = new JoystickButton(GUNNER, 1);
+JoystickButton GAButton = new JoystickButton(xboxController, Constants.LOW_FIRE_VALUE);
   /* Medium Fire */
-JoystickButton GBButton = new JoystickButton(GUNNER, 2);
+JoystickButton GBButton = new JoystickButton(xboxController, Constants.MEDIUM_FIRE_VALUE);
   /* High Fire */
-JoystickButton GYButton = new JoystickButton(GUNNER, 4);
+JoystickButton GYButton = new JoystickButton(xboxController, Constants.HIGH_FIRE_VALUE);
   /* Suck */
-JoystickButton GLeftBumper = new JoystickButton(GUNNER,5);
+JoystickButton GLeftBumper = new JoystickButton(xboxController,Constants.SUCK_VALUE);
   /* Zuck */
-JoystickButton GStart = new JoystickButton(GUNNER, 8);
+JoystickButton GStart = new JoystickButton(xboxController, Constants.ZUCK_VALUE);
   /* Mega Zuck */
-JoystickButton Gback = new JoystickButton(GUNNER, 7);
+JoystickButton Gback = new JoystickButton(xboxController, Constants.MEGA_ZUCK_VALUE);
   /* Climb Extend*/
-JoystickButton GXButton = new JoystickButton(GUNNER, 3);
+JoystickButton GXButton = new JoystickButton(xboxController, Constants.CLIMB_EXTEND);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. 
@@ -92,8 +89,8 @@ JoystickButton GXButton = new JoystickButton(GUNNER, 3);
   public RobotContainer() {
     // Configure the button bindings
    
- m_Drivebase.setDefaultCommand(new JoystickDrive(m_Drivebase, DRIVER));
- m_IntakeDeploy.setDefaultCommand(new DeployIntake(m_IntakeDeploy, GUNNER));
+ m_Drivebase.setDefaultCommand(new JoystickDrive(m_Drivebase, driverController));
+ m_IntakeDeploy.setDefaultCommand(new DeployIntake(m_IntakeDeploy, xboxController));
 
 configureButtonBindings();
     
@@ -108,7 +105,7 @@ configureButtonBindings();
   private void configureButtonBindings() {
 
 GLeftBumper.whileHeld(new Suck(m_Intake, m_Conveyer, m_Transfer));
-GYButton.whileHeld(new HighFire(m_Conveyer, m_Transfer, m_Gun));
+GYButton.whileHeld(new HighFire (m_Conveyer, m_Transfer, m_Gun));
 GBButton.whileHeld(new MedFire(m_Conveyer, m_Transfer, m_Gun));
 GAButton.whileHeld(new LowFire(m_Conveyer, m_Transfer, m_Gun));
 GStart.whileHeld(new Zuck(m_Intake));
