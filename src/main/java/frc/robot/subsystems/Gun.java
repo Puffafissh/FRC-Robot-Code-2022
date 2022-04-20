@@ -4,20 +4,24 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.Victor;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Gun extends SubsystemBase {
 
-  private Victor gunmotor;
+  private CANSparkMax ShooterMotor;
+
  
- public Gun() {
-gunmotor= new Victor(2);
-gunmotor.setSafetyEnabled(false);
+public void Shooter() {
+CANSparkMax ShooterMotor = new CANSparkMax(Constants.SHOOTER_MOTOR_ID, MotorType.kBrushless);
+ShooterMotor.restoreFactoryDefaults(false);
   }
 
-  public void setRaw(double gunvalue) {
-		gunmotor.set(gunvalue);
+  public void setRaw(double shootvalue) {
+		ShooterMotor.set(shootvalue);
 		
   }
 
