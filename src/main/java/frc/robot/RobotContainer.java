@@ -68,7 +68,7 @@ public double GetDriverRawAxis(int axis){
 
  //private final JoystickDrive DRIVE = new JoystickDrive(m_Drivebase, DRIVE);
 
-  /* Low Fire */
+  // Low Fire 
 JoystickButton GAButton = new JoystickButton(xboxController, Constants.LOW_FIRE_VALUE);
   /* Medium Fire */
 JoystickButton GBButton = new JoystickButton(xboxController, Constants.MEDIUM_FIRE_VALUE);

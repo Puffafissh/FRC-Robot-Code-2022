@@ -23,7 +23,7 @@ public class ClimbExtend extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    this.m_Climber.setRaw(0.1);
+    this.m_Climber.setRaw(1,-1);
 
     Timer.delay(0.5);
 
@@ -37,7 +37,7 @@ public class ClimbExtend extends CommandBase {
   @Override
   public void end(boolean interrupted) 
   {
-      m_Climber.setRaw(0);
+      m_Climber.setRaw(0,0);
   }
 
   // Returns true when the command should end.

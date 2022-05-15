@@ -49,7 +49,7 @@ public class MegaZuck extends CommandBase {
 
 m_intake.setRaw(-1);
 m_transfer.setRaw(1);
-m_gun.setRaw(-1);
+m_gun.setRaw(-1,1);
 m_conveyer.setRaw(-1);
 
   }
@@ -59,7 +59,7 @@ m_conveyer.setRaw(-1);
   public void end(boolean interrupted) {
     m_intake.setRaw(0);
     m_transfer.setRaw(0);
-    m_gun.setRaw(0);
+    m_gun.setRaw(0,0);
     m_conveyer.setRaw(0);
 
   }

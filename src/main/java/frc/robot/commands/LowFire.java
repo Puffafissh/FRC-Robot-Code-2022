@@ -38,7 +38,7 @@ public class LowFire extends CommandBase {
   @Override
   public void initialize() {
  
-    m_gun.setRaw(0.25);
+    m_gun.setRaw(0.25,-0.25);
     Timer.delay(2);
     
     m_conveyer.setRaw(0.6);
@@ -58,7 +58,7 @@ m_transfer.setRaw(-0.65);
   @Override
   public void end(boolean interrupted) {
     m_conveyer.setRaw(0);
-    m_gun.setRaw(0);
+    m_gun.setRaw(0,0);
     m_transfer.setRaw(0);
 
   }

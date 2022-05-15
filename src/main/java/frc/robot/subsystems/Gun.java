@@ -12,16 +12,19 @@ import frc.robot.Constants;
 
 public class Gun extends SubsystemBase {
 
-  private CANSparkMax ShooterMotor;
+  private CANSparkMax ShooterMotorLeft = new CANSparkMax(Constants.SHOOTER_MOTOR_ID_LEFT, MotorType.kBrushless);
+  private CANSparkMax ShooterMotorRight = new CANSparkMax(Constants.SHOOTER_MOTOR_ID_Right, MotorType.kBrushless);
 
- 
+
 public void Shooter() {
-CANSparkMax ShooterMotor = new CANSparkMax(Constants.SHOOTER_MOTOR_ID, MotorType.kBrushless);
-ShooterMotor.restoreFactoryDefaults(false);
+  
+ShooterMotorLeft.restoreFactoryDefaults(false);
+ShooterMotorRight.restoreFactoryDefaults(false);
   }
 
-  public void setRaw(double shootvalue) {
-		ShooterMotor.set(shootvalue);
+  public void setRaw(double shootvalueLeft, double shootvalueRight) {
+    ShooterMotorLeft.set(shootvalueLeft);
+	  ShooterMotorRight.set(shootvalueRight);
 		
   }
 

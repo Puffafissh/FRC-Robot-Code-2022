@@ -23,7 +23,7 @@ public class ClimbRetract extends CommandBase
   @Override
   public void initialize() 
   {
-      this.m_climb.setRaw(-0.75);
+      this.m_climb.setRaw(-0.75,0.75);
 
       Timer.delay(0.5);
   }
@@ -35,7 +35,7 @@ public class ClimbRetract extends CommandBase
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-      m_climb.setRaw(0);
+      m_climb.setRaw(0,0);
   }
 
   // Returns true when the command should end.

@@ -40,7 +40,7 @@ public class HighFire extends CommandBase {
 // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_gun.setRaw(1);
+    m_gun.setRaw(1,-1);
 
     Timer.delay(2);
 
@@ -60,7 +60,7 @@ m_transfer.setRaw(1);
   @Override
   public void end(boolean interrupted) {
     m_conveyer.setRaw(0);
-    m_gun.setRaw(0);
+    m_gun.setRaw(0,0);
     m_transfer.setRaw(0);
 
   }

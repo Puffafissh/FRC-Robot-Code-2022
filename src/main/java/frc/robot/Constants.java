@@ -30,7 +30,10 @@ public final class Constants {
     public static final int ZUCK_VALUE = 0;
     public static final int MEGA_ZUCK_VALUE = 0;
     
+    public static final int SHOOTER_MOTOR_ID_LEFT = 5;
+    public static final int SHOOTER_MOTOR_ID_Right = 6;
+    public static final int CLIMBER_MOTOR_ID_1 = 7;
+    public static final int CLIMBER_MOTOR_ID_2 = 8;
     public static final int CLIMB_EXTEND = 0;
-    public static final int SHOOTER_MOTOR_ID = 0;
 }
 
